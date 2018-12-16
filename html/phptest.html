@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+  "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ru">
+<head>
+<title>PHP Test</title>
+</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<body>
+    <form action="../php/sum.php" method="post">
+        <h1>Строки</h1>
+        <p>строка<input type="text" name="string" /></p>
+        <p><input type="submit" /></p>
+        
+    </form>
+
+    <div>
+            <h1>Матрицы</h1>
+            <form method="POST" action="../php/matrix.php" id="form_matrix">
+                <p>Размерность матрицы <input type="text" name="dim" id="dim_" /></p>
+                <button id = "bt1" , hidden = true> OK </button>
+                <br>
+
+                <input type="submit" value="result", id="res_bt", hidden = true>
+
+            </form>
+    </div>
+    <div>
+        <h1>Файлы</h1>
+        <form method="POST" action="../php/files.php" id="form_matrix">
+            <p>
+                <input type="file" name="f", id="file_name">
+                <input type="submit" value="Обработать", id="bt2">
+            </p>
+        </form>
+    </div>
+</body>
+</html> 
+
+<script type="text/javascript">
+  var input = document.getElementById("dim_");
+
+    input.onchange = function() {
+        alert(input.value);
+        document.getElementById("bt1").hidden = true;
+        document.getElementById("res_bt").hidden = false;
+        ChangeOnFly();
+
+    };
+    input.oninput = function() {
+        document.getElementById("bt1").hidden = false;
+    };
+
+    function ChangeOnFly() {
+        var node = document.getElementById("dim_");
+        var n = node.value;
+        var par = document.getElementById("res_bt");
+        var pdiv = par.parentNode;
+        for(var i = 0; i < n; ++i) {
+            for(var j = 0; j < n; ++j) {
+                var element = document.createElement("input"); 
+                element.name = "arr"+i+j;
+                pdiv.insertBefore(element, par)
+            }
+            var br = document.createElement("br");
+            pdiv.insertBefore(br, par);
+        }
+    }
+    </script>
