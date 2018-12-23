@@ -32,6 +32,22 @@
             <input type="submit" value="Обработать", id="bt2">
         </form>
     </div>
+    <div>
+        <h1>Работа с базой</h1>
+        <form method="POST" action="../data_bases/add_new.php" id="form_files">
+            <p>ФИО водителя: <input type="text" name="fio" id="fio" /></p>
+            <p>Номер авто: <input type="text" name="number" id="number" /></p>
+            <p>Информация об авто: <input type="text" name="info" id="info" /></p>
+            <input type="submit" value="Добавить", id="add"><br>
+        </form>
+        <form method="POST" action="../data_bases/delete.php" id="form_files">
+            <p>Номер авто: <input type="text" name="number" id="number" /></p>
+            <input type="submit" value="Удалить пропуск по номеру авто", id="delete"><br>
+        </form>
+        <form method="POST" action="../data_bases/get_list.php" id="form_files">
+            <input type="submit" value="Выдать информацию о пропусках", id="list"><br>
+        </form>
+    </div>
 </body>
 </html> 
 
